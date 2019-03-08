@@ -29,16 +29,19 @@ function create(env, ctx) {
     }
 
     if (env.settings.isEnabled('cors')) {
+//	if(true){
         var allowOrigin = _.get(env, 'extendedSettings.cors.allowOrigin') || '*';
         console.info('Enabled CORS, allow-origin:', allowOrigin);
         app.use(function allowCrossDomain(req, res, next) {
-            res.header('Access-Control-Allow-Origin', allowOrigin);
+            console.log('Received CORS request.'); 
+	    res.header('Access-Control-Allow-Origin', allowOrigin);
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
             res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
             // intercept OPTIONS method
             if ('OPTIONS' === req.method) {
-                res.send(200);
+                console.log('OPTIONS pre-flight'); 
+		res.send(200);
             } else {
                 next();
             }

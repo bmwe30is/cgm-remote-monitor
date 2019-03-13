@@ -8,6 +8,7 @@ var prettyjson = require('prettyjson');
 
 var path = require('path');
 var fs = require('fs');
+require('dotenv').config();
 
 function create(env, ctx) {
 	var app = express();

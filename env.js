@@ -1,5 +1,4 @@
 'use strict';
-require('dotenv').config();
 var _each = require('lodash/each');
 var _trim = require('lodash/trim');
 var _forIn = require('lodash/forIn');
